@@ -1,3 +1,4 @@
+import { useUser } from "@clerk/nextjs";
 import { useCodeEditorStore } from "@/store/useCodeEditorStore";
 import { useMutation } from "convex/react";
 import { useState } from "react";
@@ -7,6 +8,7 @@ import toast from "react-hot-toast";
 
 function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
 	const [title, setTitle] = useState("");
+	const { user } = useUser();
 	const [isSharing, setIsSharing] = useState(false);
 	const { language, getCode } = useCodeEditorStore();
 	const createSnippet = useMutation(api.snippets.createSnippet);
@@ -15,8 +17,8 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
 		e.preventDefault();
 
 		setIsSharing(true);
-
 		try {
+			if (!user?.id) return toast.error("Please sign up to share a snippet");
 			const code = getCode();
 			await createSnippet({ title, language, code });
 			onClose();
@@ -37,7 +39,7 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
 					<h2 className="text-xl font-semibold text-white">Share Snippet</h2>
 					<button
 						onClick={onClose}
-						className="text-gray-400 hover:text-gray-300"
+						className="cursor-pointer text-gray-400 hover:text-gray-300"
 					>
 						<X className="w-5 h-5" />
 					</button>
