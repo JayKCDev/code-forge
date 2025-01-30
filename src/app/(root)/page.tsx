@@ -1,6 +1,7 @@
 import EditorPanel from "./_components/EditorPanel";
 import Header from "./_components/Header";
 import OutputPanel from "./_components/OutputPanel";
+import CredentialsToast from "./_components/CredentialsToast";
 
 export default function Home() {
 	return (
@@ -12,6 +13,7 @@ export default function Home() {
 					<EditorPanel />
 					<OutputPanel />
 				</div>
+				<CredentialsToast />
 			</div>
 		</div>
 	);
