@@ -1,7 +1,6 @@
-<h1 align="center">👨🏻‍💻 Code Forge - Code Editor on Web ⭐</h1>
+# 👨🏻‍💻 Code Forge - Code Editor on Web ⭐
 
-[View the Live App](#)  
-<!-- Replace # with the deployed app URL once available -->
+[View the Live App](https://code-forge-ten.vercel.app/)
 
 Highlights:
 
@@ -34,7 +33,7 @@ LEMON_SQUEEZY_WEBHOOK_SECRET=YOUR_STRONG_CHOSEN_SECRET_VALUE_HERE
 NEXT_PUBLIC_LEMON_SQUEEZY_CHECKOUT_URL=LEMON_SQUEEZY_CHECKOUT_PAGE_URL_HERE
 ```
 
-### Add these env to Convex Dashboard
+### Add these .env to [Convex](https://www.convex.dev/) Dashboard
 
 ```js
 CLERK_WEBHOOK_SECRET=
